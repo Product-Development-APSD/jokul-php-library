@@ -10,9 +10,17 @@ use DOKU\Service\DokuVa;
 
 use DOKU\Service\BcaVa;
 
+use DOKU\Service\BniVa;
+
 use DOKU\Service\BsiVa;
 
 use DOKU\Service\BriVa;
+
+use DOKU\Service\CimbVa;
+
+use DOKU\Service\PermataVa;
+
+use DOKU\Service\DanamonVa;
 
 use DOKU\Service\CreditCard;
 
@@ -21,6 +29,10 @@ use DOKU\Service\DokuWallet;
 use DOKU\Service\Ovo;
 
 use DOKU\Service\ShopeePay;
+
+use DOKU\Service\Alfa;
+
+use DOKU\Service\Indomaret;
 
 class Client
 {
@@ -79,6 +91,30 @@ class Client
         return BriVa::generated($this->config, $params);
     }
 
+    public function generateBniVa($params)
+    {
+        $this->config = $this->getConfig();
+        return BniVa::generated($this->config, $params);
+    }
+
+    public function generatePermataVa($params)
+    {
+        $this->config = $this->getConfig();
+        return PermataVa::generated($this->config, $params);
+    }
+
+    public function generateDanamonVa($params)
+    {
+        $this->config = $this->getConfig();
+        return DanamonVa::generated($this->config, $params);
+    }
+
+    public function generateCimbVa($params)
+    {
+        $this->config = $this->getConfig();
+        return CimbVa::generated($this->config, $params);
+    }
+
     public function generateCreditCard($params)
     {
         $this->config = $this->getConfig();
@@ -101,5 +137,17 @@ class Client
     {
         $this->config = $this->getConfig();
         return Ovo::generated($this->config, $params);
+    }
+
+    public function generateAlfa($params)
+    {
+        $this->config = $this->getConfig();
+        return Alfa::generated($this->config, $params);
+    }
+
+    public function generateIndomaret($params)
+    {
+        $this->config = $this->getConfig();
+        return Indomaret::generated($this->config, $params);
     }
 }
